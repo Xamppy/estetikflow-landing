@@ -67,11 +67,10 @@ export default function Hero() {
             {/* Main Headline */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#0D2B28] leading-tight tracking-tight"
             >
-              Dedícate a atender, deja que{' '}
-              <span className="text-primary">EstetikFlow</span>{' '}
-              gestione tu agenda y tus costos.
+              Deja de trabajar para cubrir gastos. Empieza a{' '}
+              <span className="text-primary">construir tu imperio</span>.
             </motion.h1>
 
             {/* Subtitle */}
@@ -79,10 +78,7 @@ export default function Hero() {
               variants={itemVariants}
               className="mt-6 text-lg sm:text-xl text-gray-600 max-w-xl leading-relaxed"
             >
-              Tu consultorio en piloto automático:{' '}
-              <span className="font-semibold text-gray-800">Agenda Online 24/7</span> •{' '}
-              <span className="font-semibold text-gray-800">Fichas Clínicas Visuales</span> •{' '}
-              <span className="font-semibold text-gray-800">Inventario que se descuenta solo</span>.
+              La primera plataforma para podólogas y esteticistas que no solo agenda citas: <span className="font-semibold text-gray-800">te dice exactamente cuánto ganas</span>, gestiona tu stock gramo a gramo y te devuelve tu tiempo.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -95,21 +91,21 @@ export default function Hero() {
                 href="https://app.estetikflow.cl/registro"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-accent rounded-full shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all duration-300"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-[#e76f51] rounded-full shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all duration-300"
               >
-                Empezar Prueba Gratis
+                Quiero el control de mi negocio
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.a>
 
               {/* Secondary CTA */}
               <motion.a
-                href="#demo"
+                href="#precios"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-primary hover:text-primary transition-all duration-300"
               >
                 <Play className="mr-2 w-5 h-5" />
-                Ver Demo
+                Ver cómo funciona la rentabilidad
               </motion.a>
             </motion.div>
 
