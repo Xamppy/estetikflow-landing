@@ -43,7 +43,7 @@ export default function Hero() {
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0D2B28] leading-tight tracking-tight max-w-lg lg:max-w-none mx-auto lg:mx-0">
               Deja de trabajar para cubrir gastos. Empieza a{' '}
-              <span className="text-primary">construir tu imperio</span>.
+              <span className="text-primary">Liderar tu negocio.</span>.
             </h1>
 
             {/* Subtitle */}
