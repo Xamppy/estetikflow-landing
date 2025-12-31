@@ -22,7 +22,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '#caracteristicas', label: 'Características' },
     { href: '#precios', label: 'Precios' },
-    { href: '#contacto', label: 'Contacto' },
+    { href: 'mailto:contacto@estetikflow.cl?subject=Consulta%20sobre%20EstetikFlow', label: 'Contacto' },
   ];
 
   return (
@@ -30,10 +30,10 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-100/50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+          ? 'shadow-lg'
+          : ''
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +70,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <motion.a
-              href="https://app.estetikflow.cl/login"
+              href="#contacto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
@@ -79,7 +79,7 @@ export default function Navbar() {
                   : 'text-primary border-2 border-primary hover:bg-primary hover:text-white'
               }`}
             >
-              Acceso Clientes
+              Solicitar Acceso
             </motion.a>
           </div>
 
@@ -101,7 +101,7 @@ export default function Navbar() {
             opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-white rounded-b-2xl shadow-lg"
+          className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md rounded-b-2xl shadow-lg"
         >
           <div className="py-4 px-4 space-y-3">
             {navLinks.map((link) => (
@@ -109,17 +109,18 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-2 text-gray-700 hover:text-primary font-medium transition-colors"
+                className="block py-3 min-h-[44px] flex items-center text-gray-700 hover:text-primary font-medium transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <hr className="border-gray-200" />
             <a
-              href="https://app.estetikflow.cl/login"
-              className="block py-2 text-primary font-semibold"
+              href="#contacto"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block py-3 min-h-[44px] flex items-center text-primary font-semibold"
             >
-              Acceso Clientes
+              Solicitar Acceso
             </a>
           </div>
         </motion.div>

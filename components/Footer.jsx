@@ -8,26 +8,24 @@ export default function Footer() {
     producto: [
       { label: 'Características', href: '#caracteristicas' },
       { label: 'Precios', href: '#precios' },
-      { label: 'Demo', href: '#demo' },
     ],
     empresa: [
       { label: 'Nosotros', href: '/nosotros' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Contacto', href: '#contacto' },
+      { label: 'Contacto', href: 'mailto:contacto@estetikflow.cl?subject=Consulta%20sobre%20EstetikFlow' },
     ],
     legal: [
-      { label: 'Privacidad', href: '/privacidad' },
-      { label: 'Términos', href: '/terminos' },
+      { label: 'Privacidad', href: '/legal#privacidad' },
+      { label: 'Términos', href: '/legal#terminos' },
     ],
   };
 
   return (
     <footer className="bg-[#0D2B28] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 text-center md:text-left">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
+          <div className="md:col-span-1 flex flex-col items-center md:items-start">
+            <Link href="/" className="flex items-center justify-center md:justify-start gap-2">
               <Image
                 src="/images/logo-symbol.png"
                 alt="EstetikFlow Logo"

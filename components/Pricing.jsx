@@ -6,61 +6,61 @@ import { Check, X } from 'lucide-react';
 
 const plans = [
   {
-    name: 'Esencial',
-    monthlyPrice: 9990,
-    annualPrice: 99900,
-    annualMonthlyEquivalent: 8325,
-    annualSavings: 19980,
+    name: 'Orden Digital',
+    monthlyPrice: 12990,
+    annualPrice: 129900,
+    annualMonthlyEquivalent: 10825,
+    annualSavings: 25980,
     period: 'mes',
-    description: 'Para quien solo necesita orden',
+    description: 'Para dejar el cuaderno y empezar a digitalizarte.',
     features: [
-      { text: 'Agenda Online', included: true },
-      { text: 'Fichas Clínicas Básicas', included: true },
-      { text: 'Hasta 100 pacientes', included: true },
-      { text: 'Soporte por email', included: true },
-      { text: 'Recordatorios WhatsApp', included: false },
-      { text: 'Inventario Inteligente', included: false },
+      { text: 'Agenda Online 24/7', included: true },
+      { text: 'Fichas Clínicas (Anamnesis y evolución)', included: true },
+      { text: 'Historial de Pacientes ilimitado', included: true },
+      { text: 'Soporte por correo', included: true },
+      { text: 'Recordatorios por WhatsApp', included: false },
+      { text: 'Control de Inventario', included: false },
+      { text: 'Reporte de Rentabilidad', included: false },
     ],
-    cta: 'Probar Gratis 14 días',
+    cta: 'Cotizar este Plan',
     highlighted: false,
   },
   {
-    name: 'Estetik Pro',
-    monthlyPrice: 19990,
-    annualPrice: 199900,
-    annualMonthlyEquivalent: 16658,
-    annualSavings: 39980,
+    name: 'Imperio Profesional',
+    monthlyPrice: 24990,
+    annualPrice: 249900,
+    annualMonthlyEquivalent: 20825,
+    annualSavings: 49980,
     period: 'mes',
-    description: 'Para quien quiere automatizar y ganar tiempo',
+    description: 'Control total. Conoce tu ganancia real y controla tus insumos.',
     badge: 'Más Popular',
     features: [
-      { text: 'Todo lo de Esencial', included: true },
-      { text: 'Pacientes ilimitados', included: true },
-      { text: 'Recordatorios WhatsApp', included: true },
-      { text: 'Inventario Inteligente', included: true },
-      { text: 'Reportes Financieros', included: true },
-      { text: 'Fichas con fotos', included: true },
+      { text: 'Todo lo del plan Orden Digital', included: true },
+      { text: '50 Recordatorios WhatsApp/mes', included: true, highlight: true },
+      { text: 'Control de Inventario Crítico', included: true },
+      { text: 'Calculadora de Rentabilidad', included: true },
+      { text: 'Dashboard Financiero', included: true },
+      { text: 'Múltiples Profesionales', included: false },
     ],
-    cta: 'Probar Gratis 14 días',
+    cta: 'Cotizar este Plan',
     highlighted: true,
   },
   {
-    name: 'Centro Integral',
-    monthlyPrice: 49990,
-    annualPrice: 499900,
-    annualMonthlyEquivalent: 41658,
-    annualSavings: 99980,
+    name: 'Gabinete Expansión',
+    monthlyPrice: 59990,
+    annualPrice: 599900,
+    annualMonthlyEquivalent: 49992,
+    annualSavings: 119980,
     period: 'mes',
-    description: 'Para clínicas con múltiples profesionales',
+    description: 'Para clínicas con equipo de trabajo y roles.',
     features: [
-      { text: 'Todo lo de Estetik Pro', included: true },
-      { text: 'Multi-usuario (hasta 5)', included: true },
-      { text: 'Roles y permisos', included: true },
-      { text: 'Dashboard consolidado', included: true },
-      { text: 'Soporte prioritario', included: true },
-      { text: 'Integraciones avanzadas', included: true },
+      { text: 'Todo lo del plan Imperio', included: true },
+      { text: '100 Recordatorios WhatsApp/mes', included: true, highlight: true },
+      { text: 'Multi-usuario (Hasta 5 profesionales)', included: true },
+      { text: 'Roles y Permisos (Admin/Profesional)', included: true },
+      { text: 'Soporte Prioritario', included: true },
     ],
-    cta: 'Probar Gratis 14 días',
+    cta: 'Cotizar este Plan',
     highlighted: false,
   },
 ];
@@ -190,17 +190,16 @@ export default function Pricing() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
         >
           {plans.map((plan) => (
             <motion.div
               key={plan.name}
               variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className={`relative flex flex-col p-8 rounded-2xl transition-all duration-300 ${
+              className={`relative flex flex-col p-8 rounded-2xl transition-all duration-500 ease-out hover:-translate-y-2 h-full ${
                 plan.highlighted
-                  ? 'bg-white border-2 border-primary shadow-xl scale-100 md:scale-105 z-10'
-                  : 'bg-white border border-gray-200 shadow-sm hover:shadow-lg'
+                  ? 'bg-white border-2 border-primary shadow-xl z-10 hover:shadow-2xl'
+                  : 'bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-gray-300'
               }`}
             >
               {/* Popular Badge */}
@@ -269,7 +268,11 @@ export default function Pricing() {
                     )}
                     <span
                       className={`text-sm ${
-                        feature.included ? 'text-gray-600' : 'text-gray-400'
+                        feature.included 
+                          ? feature.highlight 
+                            ? 'text-primary font-semibold' 
+                            : 'text-gray-600' 
+                          : 'text-gray-400'
                       }`}
                     >
                       {feature.text}
@@ -279,18 +282,16 @@ export default function Pricing() {
               </ul>
 
               {/* CTA Button */}
-              <motion.a
-                href="https://app.estetikflow.cl/registro"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className={`block w-full py-4 px-6 text-center font-semibold rounded-full transition-all duration-300 ${
+              <a
+                href="#contacto"
+                className={`block w-full py-4 px-6 text-center font-semibold rounded-full transition-all duration-300 ease-out ${
                   plan.highlighted
-                    ? 'bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/30'
-                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    ? 'bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/30 active:scale-[0.98]'
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200 active:scale-[0.98]'
                 }`}
               >
-                {plan.cta}
-              </motion.a>
+                Solicitar Demo
+              </a>
             </motion.div>
           ))}
         </motion.div>

@@ -32,7 +32,7 @@ export default function PainPoints() {
   ];
 
   return (
-    <section className="py-20 bg-[#f4e1d2]/30">
+    <section className="py-16 md:py-20 bg-[#f4e1d2]/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function PainPoints() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
             ¿Sientes que trabajas todo el día pero <span className="text-accent">el dinero no se ve</span>?
           </h2>
         </motion.div>

@@ -1,3 +1,4 @@
+import TopBanner from '@/components/TopBanner';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import BentoFeatures from '@/components/BentoFeatures';
@@ -8,6 +9,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <>
+      <TopBanner />
       <Navbar />
       <main>
         <Hero />

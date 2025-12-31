@@ -40,7 +40,7 @@ export default function BentoFeatures() {
   };
 
   return (
-    <section id="caracteristicas" className="py-24 lg:py-32 bg-gray-50">
+    <section id="caracteristicas" className="py-16 md:py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -48,9 +48,9 @@ export default function BentoFeatures() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
             Todo lo que necesitas,{' '}
             <span className="text-primary">nada que no uses</span>
           </h2>
@@ -65,7 +65,7 @@ export default function BentoFeatures() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6"
         >
           {/* ============================================= */}
           {/* Item 1: AGENDA INTELIGENTE (with screenshot) */}
@@ -189,18 +189,18 @@ export default function BentoFeatures() {
           {/* ============================================= */}
           <motion.div
             variants={itemVariants}
-            className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden min-h-[480px] flex flex-col justify-start p-8"
+            className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-start p-6 md:p-8"
           >
-            {/* Text Content - Highest z-index */}
-            <div className="relative z-40">
+            {/* Text Content - Above images but below Navbar */}
+            <div className="relative z-10">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-accent/20 mb-4">
                 <ClipboardList className="w-6 h-6 text-accent" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Fichas Clínicas Profesionales.
               </h3>
-              <p className="text-gray-600 text-sm mb-4 max-w-[55%]">
-                Olvídate de las fichas en papel. Registra anamnesis, alergias y evolución del paciente en segundos. Todo seguro y ordenado.
+              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                Olvídate de las fichas en papel. Registra anamnesis, alergias y evolución del paciente en segundos.
               </p>
               {/* Tags */}
               <div className="flex flex-wrap gap-2">
@@ -210,8 +210,21 @@ export default function BentoFeatures() {
               </div>
             </div>
 
-            {/* Fan Wrapper - Anchored at bottom center */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full h-[250px] flex items-end justify-center z-10 pointer-events-none">
+            {/* Mobile: Single clean image (no fan effect) */}
+            <div className="md:hidden relative mt-6 flex-1 min-h-[160px]">
+              <div className="absolute inset-0 rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                <Image
+                  src="/screenshots/ficha-clinica-2.png"
+                  alt="Ficha clínica EstetikFlow"
+                  fill
+                  unoptimized
+                  className="object-cover object-top"
+                />
+              </div>
+            </div>
+
+            {/* Desktop: Fan Wrapper - Anchored at bottom center */}
+            <div className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 w-full h-[250px] items-end justify-center z-10 pointer-events-none">
               
               {/* Card 1: Left/Back (ficha-clinica.png) */}
               <div className="absolute w-[60%] max-w-[280px] h-[220px] rounded-xl shadow-lg border border-gray-200 bg-white origin-bottom transform -translate-x-6 -rotate-6 z-10 transition-all duration-500 ease-out group-hover:-rotate-12 group-hover:-translate-x-10 overflow-hidden">

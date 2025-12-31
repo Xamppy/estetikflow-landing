@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Mail, Send } from 'lucide-react';
+import { Instagram, Mail, Send } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,27 @@ export default function Contact() {
     asunto: '',
     mensaje: '',
   });
+
+  // Detectar parámetro de oferta en URL y pre-llenar formulario
+  useEffect(() => {
+    const checkParams = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('offer') === 'claimed') {
+        setFormData(prev => ({
+          ...prev,
+          asunto: 'conocer', // Valor del select que corresponde a "Quiero conocer EstetikFlow"
+          mensaje: 'Hola, me gustaría reclamar mi mes gratis de lanzamiento y conocer más detalles sobre el software.'
+        }));
+      }
+    };
+
+    // Chequear al montar
+    checkParams();
+
+    // Escuchar cambios (por si el usuario clica el banner estando ya en la página)
+    window.addEventListener('popstate', checkParams);
+    return () => window.removeEventListener('popstate', checkParams);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,23 +93,7 @@ export default function Contact() {
             {/* Contact Details */}
             <div className="space-y-6">
               <motion.a
-                href="https://wa.me/56912345678"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02, x: 5 }}
-                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-green-100">
-                  <MessageCircle className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">WhatsApp</p>
-                  <p className="text-lg font-semibold text-gray-900">+56 9 1234 5678</p>
-                </div>
-              </motion.a>
-
-              <motion.a
-                href="mailto:contacto@estetikflow.cl"
+                href="mailto:contacto@estetikflow.cl?subject=Consulta%20sobre%20EstetikFlow"
                 whileHover={{ scale: 1.02, x: 5 }}
                 className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
               >
@@ -100,6 +105,24 @@ export default function Contact() {
                   <p className="text-lg font-semibold text-gray-900">contacto@estetikflow.cl</p>
                 </div>
               </motion.a>
+
+              {/* Instagram - Comentado temporalmente hasta que esté operativo
+              <motion.a
+                href="https://www.instagram.com/estetikflow.cl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02, x: 5 }}
+                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-fuchsia-100">
+                  <Instagram className="w-6 h-6 text-fuchsia-600" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Instagram</p>
+                  <p className="text-lg font-semibold text-gray-900">@estetikflow.cl</p>
+                </div>
+              </motion.a>
+              */}
             </div>
 
             {/* Trust Note */}
@@ -159,9 +182,9 @@ export default function Contact() {
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 outline-none bg-white"
                 >
                   <option value="">Selecciona un asunto</option>
-                  <option value="ventas">Ventas - Quiero más información</option>
-                  <option value="soporte">Soporte - Tengo un problema</option>
-                  <option value="otro">Otro</option>
+                  <option value="conocer">Quiero conocer EstetikFlow</option>
+                  <option value="precios">Consulta sobre precios y planes</option>
+                  <option value="otro">Otra consulta</option>
                 </select>
               </div>
 
