@@ -48,7 +48,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="mt-5 md:mt-6 text-lg text-gray-600 max-w-xl leading-relaxed mx-auto lg:mx-0">
-              La primera plataforma para podólogas y esteticistas que no solo agenda citas: <span className="font-semibold text-gray-800">te dice exactamente cuánto ganas</span>, gestiona tu stock gramo a gramo y te devuelve tu tiempo.
+              La primera plataforma para podólogas y manicuristas que no solo agenda citas: <span className="font-semibold text-gray-800">te dice exactamente cuánto ganas</span>, gestiona tu stock gramo a gramo y te devuelve tu tiempo.
             </p>
 
             {/* ===== MOBILE IMAGE (Between Layout) ===== */}
