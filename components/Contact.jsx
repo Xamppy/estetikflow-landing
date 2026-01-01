@@ -11,6 +11,14 @@ export default function Contact() {
     asunto: '',
     mensaje: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Mapeo de valores del select a textos legibles para el correo
+  const asuntoLabels = {
+    conocer: 'Quiero conocer EstetikFlow',
+    precios: 'Consulta sobre precios y planes',
+    otro: 'Otra consulta',
+  };
 
   // Detectar parámetro de oferta en URL y pre-llenar formulario
   useEffect(() => {
@@ -38,12 +46,41 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-    setFormData({ nombre: '', email: '', asunto: '', mensaje: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/contacto@estetikflow.cl", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.nombre,
+          email: formData.email,
+          subject: asuntoLabels[formData.asunto] || formData.asunto,
+          message: formData.mensaje,
+          _subject: `Nuevo contacto desde EstetikFlow: ${asuntoLabels[formData.asunto] || formData.asunto}`,
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("¡Mensaje enviado con éxito! Te contactaremos pronto.");
+        setFormData({ nombre: '', email: '', asunto: '', mensaje: '' });
+      } else {
+        console.error("Error FormSubmit:", data);
+        alert("Hubo un error al enviar. Por favor intenta más tarde o escríbenos directamente a contacto@estetikflow.cl");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+      alert("Error de conexión. Por favor verifica tu internet e intenta nuevamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -206,12 +243,29 @@ export default function Contact() {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/30"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full flex items-center justify-center gap-2 py-4 px-6 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-primary/30 ${
+                  isSubmitting 
+                    ? 'bg-primary/70 cursor-not-allowed' 
+                    : 'bg-primary hover:bg-primary-dark'
+                }`}
               >
-                <Send className="w-5 h-5" />
-                Enviar Mensaje
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Enviar Mensaje
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>
