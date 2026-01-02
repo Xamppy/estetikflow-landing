@@ -52,12 +52,12 @@ export default function TopBanner() {
 
               {/* TEXTO: VERSIÓN MÓVIL (Corta) */}
               <p className="text-xs font-medium sm:hidden text-gray-100">
-                <span className="text-[#e76f51] font-bold">1 Mes Gratis.</span> Solo 5 Cupos.
+                <span className="text-[#e76f51] font-bold">1 Mes Gratis.</span>
               </p>
 
               {/* TEXTO: VERSIÓN DESKTOP (Completa) */}
               <p className="hidden sm:block text-sm font-medium text-gray-200">
-                Lanzamiento exclusivo: <span className="text-[#e76f51] font-bold">1 Mes Gratis</span> para las primeras 5 inscritas.
+                Lanzamiento exclusivo: <span className="text-[#e76f51] font-bold">1 Mes Gratis</span> para las primeras inscritas.
               </p>
 
               {/* BOTÓN VISUAL (CTA) */}

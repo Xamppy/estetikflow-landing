@@ -180,7 +180,7 @@ export default function Pricing() {
           className="text-center mb-12"
         >
           <span className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 text-primary font-semibold text-sm">
-            ✨ Prueba cualquiera de nuestros planes gratis por 14 días. Sin tarjeta de crédito.
+            ✨ Prueba cualquiera de nuestros planes gratis por 14 días.
           </span>
         </motion.div>
 
@@ -304,7 +304,7 @@ export default function Pricing() {
           transition={{ delay: 0.5 }}
           className="text-center text-sm text-gray-500 mt-12"
         >
-          ✓ Prueba total de 14 días en todos los planes • ✓ Sin tarjeta de crédito requerida • ✓ Cancela cuando quieras
+          ✓ Prueba total de 14 días en todos los planes • ✓ Cancela cuando quieras
         </motion.p>
       </div>
     </section>
