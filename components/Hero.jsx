@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-white pt-12 pb-12 lg:pt-16 lg:pb-6">
+    <section className="relative pt-8 pb-12 lg:pt-12 lg:pb-20 overflow-hidden flex items-center">
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 via-white to-white" />
       <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -22,7 +22,7 @@ export default function Hero() {
         {/* ===== RESPONSIVE LAYOUT ===== */}
         {/* We use flex-col for mobile (stacked) and lg:grid for desktop (side-by-side) */}
         
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
           
           {/* TEXT CONTENT COLUMN */}
           {/* Mobile: Order 1 (Top), Centered text */}
@@ -31,7 +31,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="order-1 w-full text-center lg:text-left flex flex-col items-center lg:items-start"
+            className="order-1 w-full lg:w-1/2 flex-1 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Badge */}
             <div className="mb-4 md:mb-6">
@@ -41,35 +41,19 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0D2B28] leading-tight tracking-tight max-w-lg lg:max-w-none mx-auto lg:mx-0">
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#0D2B28] leading-tight tracking-tight max-w-lg lg:max-w-none mx-auto lg:mx-0">
               Deja de trabajar para cubrir gastos. Empieza a{' '}
               <span className="text-primary">liderar tu negocio</span>.
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 md:mt-6 text-lg text-gray-600 max-w-xl leading-relaxed mx-auto lg:mx-0">
+            {/* Subtitle */}
+            <p className="mt-5 md:mt-6 text-base sm:text-lg text-gray-600 max-w-xl leading-relaxed mx-auto lg:mx-0 mb-6">
               La primera plataforma para podólogas y manicuristas que no solo agenda citas: <span className="font-semibold text-gray-800">te dice exactamente cuánto ganas</span>, gestiona tu stock gramo a gramo y te devuelve tu tiempo.
             </p>
 
-            {/* ===== MOBILE IMAGE (Between Layout) ===== */}
-            {/* Show only on mobile, between text and buttons */}
-            <motion.div
-              animate={floatingAnimation}
-              className="lg:hidden w-full max-w-[340px] mt-8 mb-8 relative mx-auto"
-            >
-              <div className="relative rounded-2xl shadow-xl overflow-hidden aspect-[4/3]">
-                <Image
-                  src="/images/hero-professional.png"
-                  alt="Profesional de estética"
-                  fill
-                  sizes="(max-width: 768px) 340px, 0px"
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-              {/* Decorative blob behind */}
-              <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-2xl bg-secondary/20" />
-            </motion.div>
+
 
             {/* CTA Buttons */}
             <div className="mt-0 lg:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
@@ -77,7 +61,7 @@ export default function Hero() {
                 href="#contacto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-[#e76f51] rounded-full shadow-lg shadow-accent/30 hover:shadow-xl transition-all duration-300"
+                className="group inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-all duration-200 min-w-[180px] bg-[#e76f51] text-white hover:bg-[#d65f41] shadow-md hover:shadow-lg"
               >
                 Quiero que me contacten
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +71,7 @@ export default function Hero() {
                 href="#precios"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-primary hover:text-primary transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-all duration-200 min-w-[180px] bg-transparent text-[#0D2B28] border-2 border-[#0D2B28] hover:bg-gray-50"
               >
                 <Play className="mr-2 w-5 h-5" />
                 Ver planes y cotizar
@@ -137,16 +121,16 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative pl-8 order-2"
+            className="flex w-full lg:w-1/2 flex-1 justify-center relative order-2 mt-8 lg:mt-0"
           >
-            <motion.div animate={floatingAnimation} className="relative">
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+            <motion.div animate={floatingAnimation} className="relative w-full max-w-[350px] lg:max-w-none">
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden h-[250px] sm:h-[350px] lg:h-auto">
                 <Image
                   src="/images/hero-professional.png"
                   alt="Profesional de estética usando EstetikFlow"
                   width={600}
                   height={500}
-                  className="w-full h-auto object-contain"
+                  className="w-full max-w-[400px] lg:max-w-[480px] h-full lg:h-auto object-cover object-top lg:object-contain"
                   priority
                 />
               </div>

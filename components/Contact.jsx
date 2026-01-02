@@ -9,6 +9,7 @@ export default function Contact() {
     nombre: '',
     email: '',
     asunto: '',
+    painPoint: 'gestion', // Valor por defecto
     mensaje: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,7 +61,9 @@ export default function Contact() {
         body: JSON.stringify({
           name: formData.nombre,
           email: formData.email,
+
           subject: asuntoLabels[formData.asunto] || formData.asunto,
+          pain_point: formData.painPoint, // Nombre del campo en el correo
           message: formData.mensaje,
           _subject: `Nuevo contacto desde EstetikFlow: ${asuntoLabels[formData.asunto] || formData.asunto}`,
         })
@@ -223,6 +226,29 @@ export default function Contact() {
                   <option value="precios">Consulta sobre precios y planes</option>
                   <option value="otro">Otra consulta</option>
                 </select>
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="painPoint" className="block text-gray-700 text-sm font-bold mb-2">
+                  ¿Qué es lo que más te cuesta ordenar hoy?
+                </label>
+                <div className="relative">
+                  <select
+                    id="painPoint"
+                    name="painPoint"
+                    value={formData.painPoint}
+                    onChange={(e) => setFormData({...formData, painPoint: e.target.value})}
+                    className="appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#2a9d8f] focus:border-transparent bg-white"
+                  >
+                    <option value="insumos">💸 No sé cuánto gano real vs. costo de insumos</option>
+                    <option value="fichas">📝 Pierdo tiempo con fichas de papel/dibujos</option>
+                    <option value="agenda">📅 Mi agenda es un desorden / Inasistencias</option>
+                    <option value="otro">🤔 Otro / Solo quiero curiosear</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
               </div>
 
               <div>

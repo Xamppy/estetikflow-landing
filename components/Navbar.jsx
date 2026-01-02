@@ -22,7 +22,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '#caracteristicas', label: 'Características' },
     { href: '#precios', label: 'Precios' },
-    { href: 'mailto:contacto@estetikflow.cl?subject=Consulta%20sobre%20EstetikFlow', label: 'Contacto' },
+    { href: '#contacto', label: 'Contacto' },
   ];
 
   return (
