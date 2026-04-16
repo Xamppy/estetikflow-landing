@@ -42,10 +42,39 @@ export default function DateTimeSelection({
       try {
         const formattedDate = format(selectedDate, "yyyy-MM-dd");
         const response = await fetch(
-          apiConfig.endpoints.availability(slug, formattedDate)
+          apiConfig.endpoints.availability(
+            slug,
+            formattedDate,
+            selectedService?.id
+          ),
+          {
+            credentials: "omit",
+          }
         );
 
         if (!response.ok) {
+          let responseData: Record<string, unknown> = {};
+
+          try {
+            responseData = await response.json();
+          } catch {
+            responseData = {};
+          }
+
+          if (response.status === 400) {
+            throw new Error(
+              (responseData.error as string) ||
+                "No se pudo consultar disponibilidad para esa fecha."
+            );
+          }
+
+          if (response.status === 404) {
+            throw new Error(
+              (responseData.error as string) ||
+                "Esta clínica no está disponible para reservas en línea."
+            );
+          }
+
           throw new Error("Error al cargar horarios disponibles");
         }
 
@@ -54,7 +83,11 @@ export default function DateTimeSelection({
         setAvailableSlots(data.horas_disponibles || []);
       } catch (err) {
         console.error("Error fetching availability:", err);
-        setError("No se pudieron cargar los horarios disponibles");
+        setError(
+          err instanceof Error
+            ? err.message
+            : "No se pudieron cargar los horarios disponibles"
+        );
         setAvailableSlots([]);
       } finally {
         setLoading(false);
@@ -62,7 +95,7 @@ export default function DateTimeSelection({
     };
 
     fetchAvailability();
-  }, [selectedDate, slug]);
+  }, [selectedDate, selectedService?.id, slug]);
 
   const handleContinue = () => {
     if (selectedDate && selectedTime) {

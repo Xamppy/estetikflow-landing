@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, ChangeEvent } from "react";
 import { format } from "date-fns";
-import { apiConfig, Tratamiento } from "../config/api";
+import { apiConfig, ReservaPayload, Tratamiento } from "../config/api";
 
 interface BookingData {
   servicio?: Tratamiento;
@@ -23,7 +23,7 @@ interface PatientFormProps {
  */
 const formatRut = (value: string): string => {
   // Remove everything except numbers and k/K
-  let rut = value.replace(/[^0-9kK]/g, "").toUpperCase();
+  const rut = value.replace(/[^0-9kK]/g, "").toUpperCase();
   
   if (rut.length > 1) {
     const dv = rut.slice(-1);
@@ -40,6 +40,21 @@ const formatRut = (value: string): string => {
  */
 const cleanRut = (rut: string): string => {
   return rut.replace(/[^0-9kK]/g, "").toUpperCase();
+};
+
+/**
+ * Normalize RUT for backend (expects XX.XXX.XXX-X or XXXXXXXX-X)
+ */
+const normalizeRutForBackend = (rut: string): string => {
+  const cleaned = cleanRut(rut);
+
+  if (cleaned.length < 2) {
+    return cleaned;
+  }
+
+  const body = cleaned.slice(0, -1);
+  const dv = cleaned.slice(-1);
+  return `${body}-${dv}`;
 };
 
 /**
@@ -152,7 +167,7 @@ export default function PatientForm({
       const fechaISO = format(bookingData.fecha, "yyyy-MM-dd");
       const telefonoNormalizado = normalizePhone(formData.whatsapp);
 
-      const payload = {
+      const payload: ReservaPayload = {
         slug: slug,
         tratamiento_id: bookingData.servicio.id,
         fecha: fechaISO,
@@ -160,14 +175,13 @@ export default function PatientForm({
         nombre_paciente: formData.nombre.trim(),
         email: formData.email.trim().toLowerCase(),
         telefono: telefonoNormalizado,
-        rut: cleanRut(formData.rut),
+        rut: normalizeRutForBackend(formData.rut),
         fecha_nacimiento: formData.fecha_nacimiento, // Already in YYYY-MM-DD format from input
       };
 
-      console.log("📤 Enviando payload:", JSON.stringify(payload, null, 2));
-
       const response = await fetch(apiConfig.endpoints.booking(), {
         method: "POST",
+        credentials: "omit",
         headers: {
           "Content-Type": "application/json",
         },
@@ -178,11 +192,8 @@ export default function PatientForm({
       try {
         responseData = await response.json();
       } catch {
-        console.log("⚠️ Response is not JSON");
+        responseData = {};
       }
-
-      console.log("📥 Response status:", response.status);
-      console.log("📥 Response body:", JSON.stringify(responseData, null, 2));
 
       if (response.status === 409) {
         setIsConflict(true);
@@ -196,22 +207,28 @@ export default function PatientForm({
 
       if (response.status === 400) {
         const errorMessage = extractErrorMessage(responseData);
-        console.log("❌ Error 400:", errorMessage);
+        setApiError(errorMessage);
+        return;
+      }
+
+      if (response.status === 404) {
+        const errorMessage =
+          (responseData.error as string) ||
+          (responseData.detail as string) ||
+          "La clínica no fue encontrada o no tiene reservas online habilitadas.";
         setApiError(errorMessage);
         return;
       }
 
       if (!response.ok) {
         const errorMessage = extractErrorMessage(responseData);
-        console.log("❌ Error:", response.status, errorMessage);
         setApiError(errorMessage);
         return;
       }
 
-      console.log("✅ Reserva creada exitosamente");
       onSubmit({ ...formData });
     } catch (err) {
-      console.error("❌ Network error:", err);
+      console.error("Network error while creating booking:", err);
       setApiError(
         "No se pudo conectar con el servidor. Por favor intenta nuevamente."
       );

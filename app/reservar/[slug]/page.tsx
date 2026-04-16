@@ -5,6 +5,7 @@ async function getClinicaData(slug: string): Promise<Clinica | null> {
   try {
     const response = await fetch(apiConfig.endpoints.clinic(slug), {
       next: { revalidate: 60 }, // Revalidate every 60 seconds
+      credentials: "omit",
     });
 
     if (!response.ok) {
