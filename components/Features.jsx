@@ -93,10 +93,10 @@ export default function Features() {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="group p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
               <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                <feature.icon size={28} />
+                <feature.icon size={28} aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {feature.title}

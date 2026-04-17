@@ -2,17 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Instagram, Mail, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
     asunto: '',
-    painPoint: 'gestion', // Valor por defecto
+    painPoint: 'insumos',
     mensaje: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitFeedback, setSubmitFeedback] = useState(null);
 
   // Mapeo de valores del select a textos legibles para el correo
   const asuntoLabels = {
@@ -50,6 +51,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitFeedback(null);
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/contacto@estetikflow.cl", {
@@ -72,15 +74,24 @@ export default function Contact() {
       const data = await response.json();
 
       if (response.ok) {
-        alert("¡Mensaje enviado con éxito! Te contactaremos pronto.");
-        setFormData({ nombre: '', email: '', asunto: '', mensaje: '' });
+        setSubmitFeedback({
+          type: 'success',
+          message: 'Mensaje enviado con exito. Te contactaremos pronto.',
+        });
+        setFormData({ nombre: '', email: '', asunto: '', painPoint: 'insumos', mensaje: '' });
       } else {
         console.error("Error FormSubmit:", data);
-        alert("Hubo un error al enviar. Por favor intenta más tarde o escríbenos directamente a contacto@estetikflow.cl");
+        setSubmitFeedback({
+          type: 'error',
+          message: 'Hubo un error al enviar. Intenta mas tarde o escribenos a contacto@estetikflow.cl.',
+        });
       }
     } catch (error) {
       console.error("Error de red:", error);
-      alert("Error de conexión. Por favor verifica tu internet e intenta nuevamente.");
+      setSubmitFeedback({
+        type: 'error',
+        message: 'Error de conexion. Verifica tu internet e intenta nuevamente.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -135,10 +146,10 @@ export default function Contact() {
               <motion.a
                 href="mailto:contacto@estetikflow.cl?subject=Consulta%20sobre%20EstetikFlow"
                 whileHover={{ scale: 1.02, x: 5 }}
-                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10">
-                  <Mail className="w-6 h-6 text-primary" />
+                  <Mail className="w-6 h-6 text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
@@ -152,7 +163,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02, x: 5 }}
-                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <div className="w-12 h-12 flex items-center justify-center rounded-full bg-fuchsia-100">
                   <Instagram className="w-6 h-6 text-fuchsia-600" />
@@ -177,6 +188,18 @@ export default function Contact() {
               onSubmit={handleSubmit}
               className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
             >
+              <div aria-live="polite" className="min-h-6">
+                {submitFeedback && (
+                  <p
+                    className={`text-sm font-medium ${
+                      submitFeedback.type === 'success' ? 'text-green-700' : 'text-red-700'
+                    }`}
+                  >
+                    {submitFeedback.message}
+                  </p>
+                )}
+              </div>
+
               <div>
                 <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
                   Nombre
@@ -187,8 +210,9 @@ export default function Contact() {
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
+                  autoComplete="name"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 outline-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 focus-visible:outline-none"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -203,8 +227,10 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  autoComplete="email"
+                  spellCheck={false}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 outline-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 focus-visible:outline-none"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -219,7 +245,7 @@ export default function Contact() {
                   value={formData.asunto}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 outline-none bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 focus-visible:outline-none bg-white"
                 >
                   <option value="">Selecciona un asunto</option>
                   <option value="conocer">Quiero conocer EstetikFlow</option>
@@ -238,7 +264,7 @@ export default function Contact() {
                     name="painPoint"
                     value={formData.painPoint}
                     onChange={(e) => setFormData({...formData, painPoint: e.target.value})}
-                    className="appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#2a9d8f] focus:border-transparent bg-white"
+                    className="appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus-visible:outline-none focus:ring-2 focus:ring-[#2a9d8f] focus:border-transparent bg-white transition-colors"
                   >
                     <option value="insumos">💸 No sé cuánto gano real vs. costo de insumos</option>
                     <option value="fichas">📝 Pierdo tiempo con fichas de papel/dibujos</option>
@@ -262,7 +288,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 focus-visible:outline-none resize-none"
                   placeholder="¿En qué podemos ayudarte?"
                 />
               </div>
@@ -272,7 +298,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                className={`w-full flex items-center justify-center gap-2 py-4 px-6 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-primary/30 ${
+                className={`w-full flex items-center justify-center gap-2 py-4 px-6 text-white font-semibold rounded-full transition-colors duration-300 shadow-lg shadow-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                   isSubmitting 
                     ? 'bg-primary/70 cursor-not-allowed' 
                     : 'bg-primary hover:bg-primary-dark'
@@ -284,11 +310,11 @@ export default function Contact() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Enviando...
+                    Enviando…
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
+                    <Send className="w-5 h-5" aria-hidden="true" />
                     Enviar Mensaje
                   </>
                 )}

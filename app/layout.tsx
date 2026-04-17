@@ -53,6 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
       </body>

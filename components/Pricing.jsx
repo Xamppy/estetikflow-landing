@@ -65,10 +65,13 @@ const plans = [
   },
 ];
 
-// Format price with Chilean format (dots as thousands separator)
-const formatPrice = (price) => {
-  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-};
+const priceFormatter = new Intl.NumberFormat('es-CL', {
+  style: 'currency',
+  currency: 'CLP',
+  minimumFractionDigits: 0,
+});
+
+const formatPrice = (price) => priceFormatter.format(price);
 
 export default function Pricing() {
   const [billingCycle, setBillingCycle] = useState('monthly');
@@ -143,10 +146,12 @@ export default function Pricing() {
             onClick={() =>
               setBillingCycle(billingCycle === 'monthly' ? 'annual' : 'monthly')
             }
-            className={`relative w-14 h-8 rounded-full transition-colors duration-300 ${
+            className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
               billingCycle === 'annual' ? 'bg-primary' : 'bg-gray-300'
             }`}
             aria-label="Toggle billing cycle"
+            role="switch"
+            aria-checked={billingCycle === 'annual'}
           >
             <motion.div
               layout
@@ -196,7 +201,7 @@ export default function Pricing() {
             <motion.div
               key={plan.name}
               variants={itemVariants}
-              className={`relative flex flex-col p-8 rounded-2xl transition-all duration-500 ease-out hover:-translate-y-2 h-full ${
+              className={`relative flex flex-col p-8 rounded-2xl transition-transform duration-500 ease-out hover:-translate-y-2 h-full ${
                 plan.highlighted
                   ? 'bg-white border-2 border-primary shadow-xl z-10 hover:shadow-2xl'
                   : 'bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-gray-300'
@@ -231,7 +236,6 @@ export default function Pricing() {
                       className="flex flex-col items-center"
                     >
                       <div className="flex items-baseline justify-center">
-                        <span className="text-2xl font-semibold text-gray-900">$</span>
                         <span className="text-5xl font-bold text-gray-900 tracking-tight">
                           {billingCycle === 'monthly'
                             ? formatPrice(plan.monthlyPrice)
@@ -245,7 +249,7 @@ export default function Pricing() {
                       {/* Annual equivalent */}
                       {billingCycle === 'annual' && (
                         <p className="text-sm text-primary font-medium mt-1">
-                          Equivalente a ${formatPrice(plan.annualMonthlyEquivalent)} / mes
+                          Equivalente a {formatPrice(plan.annualMonthlyEquivalent)} / mes
                         </p>
                       )}
                     </motion.div>
@@ -262,9 +266,10 @@ export default function Pricing() {
                         className={`w-5 h-5 mr-3 flex-shrink-0 ${
                           plan.highlighted ? 'text-primary' : 'text-primary'
                         }`}
+                        aria-hidden="true"
                       />
                     ) : (
-                      <X className="w-5 h-5 mr-3 flex-shrink-0 text-gray-300" />
+                      <X className="w-5 h-5 mr-3 flex-shrink-0 text-gray-300" aria-hidden="true" />
                     )}
                     <span
                       className={`text-sm ${
@@ -284,7 +289,7 @@ export default function Pricing() {
               {/* CTA Button */}
               <a
                 href="#contacto"
-                className={`block w-full py-4 px-6 text-center font-semibold rounded-full transition-all duration-300 ease-out ${
+                className={`block w-full py-4 px-6 text-center font-semibold rounded-full transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                   plan.highlighted
                     ? 'bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/30 active:scale-[0.98]'
                     : 'bg-gray-100 text-gray-800 hover:bg-gray-200 active:scale-[0.98]'

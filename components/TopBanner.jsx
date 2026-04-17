@@ -36,9 +36,16 @@ export default function TopBanner() {
         className="relative bg-[#0D2B28] text-white z-50 shadow-md"
       >
         {/* Área clickeable que cubre toda la barra */}
-        <button 
+        <div
+          role="button"
+          tabIndex={0}
           onClick={handleClaim}
-          className="block w-full h-full px-4 py-3 sm:px-6 lg:px-8 group cursor-pointer hover:bg-white/5 transition-colors text-left"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleClaim(e);
+            }
+          }}
+          className="block w-full h-full px-4 py-3 sm:px-6 lg:px-8 group cursor-pointer hover:bg-white/5 transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D2B28]"
         >
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             
@@ -47,7 +54,7 @@ export default function TopBanner() {
               
               {/* Badge de Oferta (Visible siempre) */}
               <span className="bg-[#e76f51] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-sm animate-pulse">
-                <Sparkles className="w-3 h-3" /> <span className="hidden sm:inline">Lanzamiento</span><span className="sm:hidden">Oferta</span>
+                <Sparkles className="w-3 h-3" aria-hidden="true" /> <span className="hidden sm:inline">Lanzamiento</span><span className="sm:hidden">Oferta</span>
               </span>
 
               {/* TEXTO: VERSIÓN MÓVIL (Corta) */}
@@ -64,37 +71,29 @@ export default function TopBanner() {
               <span className="flex items-center gap-1 text-xs sm:text-sm font-bold text-[#e76f51] group-hover:underline decoration-[#e76f51] underline-offset-4 ml-1">
                 <span className="sm:hidden">Reclamar</span>
                 <span className="hidden sm:inline">Reclamar mi cupo</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
 
             </div>
 
             {/* BOTÓN CERRAR - Separado para no activar el scroll */}
             <div className="flex-shrink-0 ml-4">
-              <span
-                role="button"
-                tabIndex={0}
+              <button
+                type="button"
                 onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     setIsVisible(false);
                 }}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setIsVisible(false);
-                    }
-                }}
-                className="flex p-1 rounded-md hover:bg-white/20 focus:outline-none transition-colors"
+                className="flex p-1 rounded-md hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D2B28] transition-colors"
               >
                 <span className="sr-only">Cerrar</span>
                 <X className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              </span>
+              </button>
             </div>
 
           </div>
-        </button>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

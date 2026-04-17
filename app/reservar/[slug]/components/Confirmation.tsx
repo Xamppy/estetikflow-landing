@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Clinica, Tratamiento } from "../config/api";
 
 interface BookingData {
@@ -113,12 +114,12 @@ export default function Confirmation({
       </div>
 
       {/* Back to Home */}
-      <a
+      <Link
         href="/"
-        className="inline-block px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors"
+        className="inline-block px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         Volver al inicio
-      </a>
+      </Link>
     </div>
   );
 }

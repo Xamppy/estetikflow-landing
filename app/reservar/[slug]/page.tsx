@@ -1,4 +1,5 @@
 import BookingFlow from "./BookingFlow";
+import Link from "next/link";
 import { apiConfig, Clinica } from "./config/api";
 
 async function getClinicaData(slug: string): Promise<Clinica | null> {
@@ -56,12 +57,12 @@ export default async function ReservarPage({
             Lo sentimos, no pudimos encontrar la clínica que buscas o las reservas
             no están habilitadas. Por favor, verifica el enlace e intenta nuevamente.
           </p>
-          <a
+          <Link
             href="/"
-            className="inline-block px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Volver al inicio
-          </a>
+          </Link>
         </div>
       </div>
     );

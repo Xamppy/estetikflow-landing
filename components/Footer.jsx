@@ -19,6 +19,11 @@ export default function Footer() {
     ],
   };
 
+  const isInternalRoute = (href) => href.startsWith('/');
+
+  const linkClassName =
+    'text-gray-300 hover:text-[#E76F51] transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D2B28] rounded-sm';
+
   return (
     <footer className="bg-[#0D2B28] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -52,7 +57,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-[#E76F51] transition-colors text-sm"
+                    className={linkClassName}
                   >
                     {link.label}
                   </a>
@@ -69,12 +74,15 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-[#E76F51] transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
+                  {isInternalRoute(link.href) ? (
+                    <Link href={link.href} className={linkClassName}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className={linkClassName}>
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -88,12 +96,15 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-[#E76F51] transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
+                  {isInternalRoute(link.href) ? (
+                    <Link href={link.href} className={linkClassName}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className={linkClassName}>
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -109,7 +120,7 @@ export default function Footer() {
             href="https://www.angelcodesoluciones.cl/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-sm mt-2 md:mt-0 hover:text-[#E76F51] transition-colors"
+            className="text-white text-sm mt-2 md:mt-0 hover:text-[#E76F51] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D2B28] rounded-sm"
           >
             Desarrollado por Angel Code Soluciones
           </a>

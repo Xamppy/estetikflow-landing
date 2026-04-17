@@ -40,7 +40,7 @@ export default function LegalPage() {
             <div className="flex flex-wrap gap-4">
               <a 
                 href="#terminos" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-200 text-[#2a9d8f] hover:border-[#E76F51] hover:text-[#E76F51] transition-all text-sm font-medium"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-200 text-[#2a9d8f] hover:border-[#E76F51] hover:text-[#E76F51] transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -49,7 +49,7 @@ export default function LegalPage() {
               </a>
               <a 
                 href="#privacidad" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-200 text-[#2a9d8f] hover:border-[#E76F51] hover:text-[#E76F51] transition-all text-sm font-medium"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-200 text-[#2a9d8f] hover:border-[#E76F51] hover:text-[#E76F51] transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -69,7 +69,7 @@ export default function LegalPage() {
               <div>
                 <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">1. Identificación del Proveedor</h3>
                 <p className="leading-relaxed">
-                  El presente servicio software ("EstetikFlow") es provisto por Felipe Orellana (en adelante el "Proveedor"), 
+                  El presente servicio software (&quot;EstetikFlow&quot;) es provisto por Felipe Orellana (en adelante el &quot;Proveedor&quot;), 
                   con domicilio en Iquique, Chile. EstetikFlow es una plataforma en proceso de formalización legal como persona jurídica.
                 </p>
               </div>
@@ -123,7 +123,7 @@ export default function LegalPage() {
               <div>
                 <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">7. Limitación de Responsabilidad (SLA)</h3>
                 <p className="leading-relaxed mb-3">
-                  El servicio se provee "tal cual" (as is). Aunque el Proveedor utiliza servidores privados virtuales (VPS) 
+                  El servicio se provee &quot;tal cual&quot; (as is). Aunque el Proveedor utiliza servidores privados virtuales (VPS) 
                   y medidas de seguridad estándar:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-gray-700">
@@ -135,8 +135,8 @@ export default function LegalPage() {
               <div>
                 <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">8. Privacidad de Datos de Pacientes</h3>
                 <p className="leading-relaxed">
-                  El Usuario (Profesional) declara ser el "Responsable de los Datos" de sus pacientes según la Ley 19.628. 
-                  EstetikFlow actúa meramente como "Encargado del Tratamiento" (almacenamiento). El Usuario garantiza haber 
+                  El Usuario (Profesional) declara ser el &quot;Responsable de los Datos&quot; de sus pacientes según la Ley 19.628. 
+                  EstetikFlow actúa meramente como &quot;Encargado del Tratamiento&quot; (almacenamiento). El Usuario garantiza haber 
                   obtenido el consentimiento de sus pacientes para ingresar sus datos en sistemas digitales.
                 </p>
               </div>

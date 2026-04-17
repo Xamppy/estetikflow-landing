@@ -59,7 +59,7 @@ export default function BookingFlow({ clinica }: { clinica: Clinica & { slug: st
             <div key={step} className="flex items-center flex-1">
               <div className="flex flex-col items-center flex-1">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-colors ${
                     currentStep >= step
                       ? "bg-primary text-white"
                       : "bg-gray-200 text-gray-400"
@@ -79,7 +79,7 @@ export default function BookingFlow({ clinica }: { clinica: Clinica & { slug: st
               </div>
               {step < 3 && (
                 <div
-                  className={`h-1 flex-1 mx-2 rounded transition-all ${
+                  className={`h-1 flex-1 mx-2 rounded transition-colors ${
                     currentStep > step ? "bg-primary" : "bg-gray-200"
                   }`}
                 />

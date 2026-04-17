@@ -61,19 +61,19 @@ export default function Hero() {
                 href="#contacto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-all duration-200 min-w-[180px] bg-[#e76f51] text-white hover:bg-[#d65f41] shadow-md hover:shadow-lg"
+                className="group inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-colors duration-200 min-w-[180px] bg-[#e76f51] text-white hover:bg-[#d65f41] shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Quiero que me contacten
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </motion.a>
 
               <motion.a
                 href="#precios"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-all duration-200 min-w-[180px] bg-transparent text-[#0D2B28] border-2 border-[#0D2B28] hover:bg-gray-50"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-colors duration-200 min-w-[180px] bg-transparent text-[#0D2B28] border-2 border-[#0D2B28] hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
-                <Play className="mr-2 w-5 h-5" />
+                <Play className="mr-2 w-5 h-5" aria-hidden="true" />
                 Ver planes y cotizar
               </motion.a>
             </div>

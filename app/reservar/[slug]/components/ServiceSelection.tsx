@@ -33,7 +33,7 @@ export default function ServiceSelection({
           <button
             key={tratamiento.id}
             onClick={() => onSelect(tratamiento)}
-            className="w-full p-5 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+            className="w-full p-5 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-colors text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
@@ -47,6 +47,7 @@ export default function ServiceSelection({
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"

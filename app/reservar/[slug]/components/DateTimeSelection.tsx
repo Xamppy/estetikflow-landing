@@ -108,7 +108,7 @@ export default function DateTimeSelection({
       <div className="flex items-center gap-3 mb-4">
         <button
           onClick={onBack}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           <svg
             className="w-5 h-5"
@@ -185,7 +185,7 @@ export default function DateTimeSelection({
                 <button
                   key={hora}
                   onClick={() => setSelectedTime(hora)}
-                  className={`py-3 px-4 rounded-lg font-medium transition-all ${
+                  className={`py-3 px-4 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                     selectedTime === hora
                       ? "bg-primary text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -203,7 +203,7 @@ export default function DateTimeSelection({
       {selectedDate && selectedTime && (
         <button
           onClick={handleContinue}
-          className="w-full py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors"
+          className="w-full py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           Continuar
         </button>

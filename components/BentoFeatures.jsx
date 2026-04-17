@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Calendar, Package, TrendingUp, ClipboardList, Check, AlertCircle } from 'lucide-react';
+import { Calendar, Package, TrendingUp, ClipboardList } from 'lucide-react';
 
 /**
  * SCREENSHOTS FOLDER SETUP:
@@ -72,12 +72,12 @@ export default function BentoFeatures() {
           {/* ============================================= */}
           <motion.div
             variants={itemVariants}
-            className="group relative col-span-1 md:col-span-1 lg:col-span-2 bg-white rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col"
+            className="group relative col-span-1 md:col-span-1 lg:col-span-2 bg-white rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-shadow duration-500 overflow-hidden flex flex-col"
           >
             {/* Text Content */}
             <div className="p-6 pb-2">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-secondary mb-4">
-                <Calendar className="w-6 h-6 text-gray-800" />
+                <Calendar className="w-6 h-6 text-gray-800" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Agenda Inteligente.
@@ -106,12 +106,12 @@ export default function BentoFeatures() {
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
-            className="group relative col-span-1 md:col-span-2 lg:col-span-4 bg-white rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden p-8 flex flex-col justify-center min-h-[300px]"
+            className="group relative col-span-1 md:col-span-2 lg:col-span-4 bg-white rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-shadow duration-500 overflow-hidden p-8 flex flex-col justify-center min-h-[300px]"
           >
             <div className="flex flex-col md:flex-row gap-8 items-center h-full">
               <div className="flex-1 space-y-4">
                 <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-primary/10">
-                  <TrendingUp className="w-6 h-6 text-primary" />
+                <TrendingUp className="w-6 h-6 text-primary" aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
                   Independencia Financiera Real.
@@ -153,12 +153,12 @@ export default function BentoFeatures() {
           {/* ============================================= */}
           <motion.div
             variants={itemVariants}
-            className="group relative col-span-1 lg:col-span-3 bg-primary/5 rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col"
+            className="group relative col-span-1 lg:col-span-3 bg-primary/5 rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-shadow duration-500 overflow-hidden flex flex-col"
           >
             {/* Text Content */}
             <div className="p-6 pb-2">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white mb-4 shadow-sm">
-                <Package className="w-6 h-6 text-primary" />
+                <Package className="w-6 h-6 text-primary" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Control de Insumos Críticos.
@@ -189,12 +189,12 @@ export default function BentoFeatures() {
           {/* ============================================= */}
           <motion.div
             variants={itemVariants}
-            className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-start p-6 md:p-8"
+            className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-500 overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-start p-6 md:p-8"
           >
             {/* Text Content - Above images but below Navbar */}
             <div className="relative z-10">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-accent/20 mb-4">
-                <ClipboardList className="w-6 h-6 text-accent" />
+                <ClipboardList className="w-6 h-6 text-accent" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Fichas Clínicas Profesionales.
@@ -227,7 +227,7 @@ export default function BentoFeatures() {
             <div className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 w-full h-[250px] items-end justify-center z-10 pointer-events-none">
               
               {/* Card 1: Left/Back (ficha-clinica.png) */}
-              <div className="absolute w-[60%] max-w-[280px] h-[220px] rounded-xl shadow-lg border border-gray-200 bg-white origin-bottom transform -translate-x-6 -rotate-6 z-10 transition-all duration-500 ease-out group-hover:-rotate-12 group-hover:-translate-x-10 overflow-hidden">
+              <div className="absolute w-[60%] max-w-[280px] h-[220px] rounded-xl shadow-lg border border-gray-200 bg-white origin-bottom transform -translate-x-6 -rotate-6 z-10 transition-transform duration-500 ease-out group-hover:-rotate-12 group-hover:-translate-x-10 overflow-hidden">
                 <Image
                   src="/screenshots/ficha-clinica.png"
                   alt="Vista general de fichas clínicas"
@@ -238,7 +238,7 @@ export default function BentoFeatures() {
               </div>
 
               {/* Card 2: Right/Front (ficha-clinica-2.png) */}
-              <div className="absolute w-[60%] max-w-[280px] h-[220px] rounded-xl shadow-xl border border-gray-200 bg-white origin-bottom transform translate-x-6 rotate-3 z-20 transition-all duration-500 ease-out group-hover:rotate-6 group-hover:translate-x-10 overflow-hidden">
+              <div className="absolute w-[60%] max-w-[280px] h-[220px] rounded-xl shadow-xl border border-gray-200 bg-white origin-bottom transform translate-x-6 rotate-3 z-20 transition-transform duration-500 ease-out group-hover:rotate-6 group-hover:translate-x-10 overflow-hidden">
                 <Image
                   src="/screenshots/ficha-clinica-2.png"
                   alt="Detalle de ficha clínica EstetikFlow"
