@@ -21,7 +21,7 @@ const faqCategories = [
       },
       {
         q: '¿En qué se diferencia EstetikFlow de otras herramientas?',
-        a: 'La diferencia es que no copiamos software genérico. EstetikFlow fue construido escuchando a profesionales reales del rubro. Incluye cosas que solo quien trabaja en estética necesita: control de insumos por gramo/mililitro, calculadora de rentabilidad real descontando insumos, y ficha clínica con podograma. No encuentras eso en un软件 genérico.',
+        a: 'La diferencia es que no copiamos software genérico. EstetikFlow fue construido escuchando a profesionales reales del rubro. Incluye cosas que solo quien trabaja en estética necesita: control de insumos por gramo/mililitro, calculadora de rentabilidad real descontando insumos, y ficha clínica con podograma. No encuentras eso en un software genérico.',
       },
       {
         q: '¿Necesito instalar algo en mi computador?',
