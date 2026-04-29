@@ -301,16 +301,38 @@ export default function Pricing() {
           ))}
         </motion.div>
 
-        {/* Trust Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Time to Value + Trust Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center text-sm text-gray-500 mt-12"
+          className="flex flex-col items-center gap-4 mt-12"
         >
-          ✓ Prueba total de 14 días en todos los planes • ✓ Cancela cuando quieras
-        </motion.p>
+          <div className="flex items-center gap-6 text-sm text-gray-500">
+            <span className="flex items-center gap-1.5">
+              <span className="text-green-500">⚡</span> Empieza en 5 minutos
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-green-500">✓</span> Sin tarjeta de crédito
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-green-500">💬</span> Soporte en español
+            </span>
+          </div>
+          <p className="text-sm text-gray-500">
+            ✓ Prueba total de 14 días en todos los planes • ✓ Cancela cuando quieras
+          </p>
+          {/* Lead Magnet CTA */}
+          <div className="mt-4 p-4 bg-[#f4e1d2]/40 rounded-xl max-w-md text-center">
+            <p className="text-sm text-gray-600">
+              ¿No sabes por dónde partir?{' '}
+              <a href="/guia-gratis" className="text-[#e76f51] font-semibold hover:underline">
+                Descarga gratis nuestra guía: "5 Errores que Hacen Perder Pacientes" →
+              </a>
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

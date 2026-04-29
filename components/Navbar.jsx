@@ -23,6 +23,7 @@ export default function Navbar() {
     { href: '#caracteristicas', label: 'Características' },
     { href: '#precios', label: 'Precios' },
     { href: '/faq', label: 'FAQ' },
+    { href: '/guia-gratis', label: '📖 Guía Gratis' },
     { href: '/nosotros', label: 'Nosotros' },
     { href: '#contacto', label: 'Contacto' },
   ];
