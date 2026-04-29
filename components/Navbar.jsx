@@ -22,6 +22,8 @@ export default function Navbar() {
   const navLinks = [
     { href: '#caracteristicas', label: 'Características' },
     { href: '#precios', label: 'Precios' },
+    { href: '/faq', label: 'FAQ' },
+    { href: '/nosotros', label: 'Nosotros' },
     { href: '#contacto', label: 'Contacto' },
   ];
 

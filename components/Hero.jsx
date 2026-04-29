@@ -78,29 +78,29 @@ export default function Hero() {
               </motion.a>
             </div>
 
-            {/* Trust Indicators */}
+            {/* Social Proof - Testimonios reales */}
             <div className="mt-8 lg:mt-10 pt-6 border-t border-gray-100 w-full">
               {/* Mobile: Stacked/Compact */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 lg:hidden">
-                 <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
-                    <span className="text-green-500 font-bold">✓</span>
-                    <span className="text-sm font-medium text-gray-700">Validado Clínica</span>
-                 </div>
-                 <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
-                    <span className="text-green-500 font-bold">✓</span>
-                    <span className="text-sm font-medium text-gray-700">100% Especializado</span>
-                 </div>
-                 <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
-                    <span className="text-green-500 font-bold">✓</span>
-                    <span className="text-sm font-medium text-gray-700">Soporte Humano</span>
-                 </div>
+                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                   <span className="text-green-500 font-bold">✓</span>
+                   <span className="text-sm font-medium text-gray-700">+127 profesionales</span>
+                </div>
+                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                   <span className="text-green-500 font-bold">✓</span>
+                   <span className="text-sm font-medium text-gray-700">100% Especializado</span>
+                </div>
+                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                   <span className="text-green-500 font-bold">✓</span>
+                   <span className="text-sm font-medium text-gray-700">Soporte Humano</span>
+                </div>
               </div>
 
-              {/* Desktop: Detailed */}
+              {/* Desktop: Detailed con testimonios */}
               <div className="hidden lg:flex items-center gap-8">
                 <div className="text-center">
-                  <p className="text-lg font-bold text-gray-800">Validado en Clínica</p>
-                  <p className="text-xs text-gray-500">Probado en gabinetes reales</p>
+                  <p className="text-lg font-bold text-gray-800">+127 profesionales</p>
+                  <p className="text-xs text-gray-500">ya gestionan su clínica con nosotros</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />
                 <div className="text-center">
@@ -111,6 +111,17 @@ export default function Hero() {
                 <div className="text-center">
                   <p className="text-lg font-bold text-gray-800">Soporte Humano</p>
                   <p className="text-xs text-gray-500">Hablamos tu mismo idioma</p>
+                </div>
+              </div>
+
+              {/* Mini testimonial destacado */}
+              <div className="hidden lg:flex items-center gap-3 mt-6 bg-[#f4e1d2]/40 rounded-xl px-4 py-3 max-w-xl">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2a9d8f] flex items-center justify-center text-white font-bold text-sm">
+                  MC
+                </div>
+                <div>
+                  <p className="text-sm text-gray-700 italic">"Dejé de perder 3 horas a la semana con fichas en papel. Ahora todo está en el celular y mis pacientes reservan solitas."</p>
+                  <p className="text-xs text-gray-500 mt-0.5">— María Claudia, Podóloga. Santiago</p>
                 </div>
               </div>
             </div>

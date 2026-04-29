@@ -8,6 +8,7 @@ export default function Footer() {
     producto: [
       { label: 'Características', href: '#caracteristicas' },
       { label: 'Precios', href: '#precios' },
+      { label: 'FAQ', href: '/faq' },
     ],
     empresa: [
       { label: 'Nosotros', href: '/nosotros' },

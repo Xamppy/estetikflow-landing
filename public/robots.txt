@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Bloquear áreas privadas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /app/
+Disallow: /*.json$
+
+# Allow recursos necesarios
+Allow: /_next/static/
+Allow: /images/
+Allow: /og-image.png
+
+# Sitemap
+Sitemap: https://www.estetikflow.cl/sitemap.xml
+
+# Crawl-delay para no saturar
+Crawl-delay: 1
