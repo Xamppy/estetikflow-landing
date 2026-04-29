@@ -24,7 +24,7 @@ const errores = [
   {
     numero: 2,
     titulo: 'No sabes cuánto ganas realmente',
-    problema: 'Cobras $25.000 por una sesión, pero ¿cuánto te queda después de guantes, bisturíes, cremas, y otros insumos? La mayoría de los profesionales只知道 cuánto vendieron, no cuánto ganan.',
+    problema: 'Cobras $25.000 por una sesión, pero ¿cuánto te queda después de guantes, bisturíes, cremas, y otros insumos? La mayoría de los profesionales no sabe cuánto ganó realmente, solo cuánto vendió.',
     solucion: 'Un sistema que descuente automáticamente el costo de insumos por atención. Así sabes exactamente tu ganancia real por servicio, por semana, por mes.',
     ejemplo: 'Vendes $500.000 en un mes. Inssumos cuestan $120.000. Tu ganancia real es $380.000. ¿Lo sabías antes de ahora?',
     emoji: '💰',
