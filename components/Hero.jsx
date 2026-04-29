@@ -36,21 +36,19 @@ export default function Hero() {
             {/* Badge */}
             <div className="mb-4 md:mb-6">
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                ✨ Software para centros de estética
+                🇨🇱 Hecho en Chile · +127 profesionales ya nos prefieren
               </span>
             </div>
 
             {/* Headline */}
-            {/* Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#0D2B28] leading-tight tracking-tight max-w-lg lg:max-w-none mx-auto lg:mx-0">
-              Deja de trabajar para cubrir gastos. Empieza a{' '}
-              <span className="text-primary">liderar tu negocio</span>.
+              Dejé de perseguir pacientes. Ellas ahora me encuentran a mí.{' '}
+              <span className="text-primary">Gracias a una agenda online.</span>
             </h1>
 
             {/* Subtitle */}
-            {/* Subtitle */}
             <p className="mt-5 md:mt-6 text-base sm:text-lg text-gray-600 max-w-xl leading-relaxed mx-auto lg:mx-0 mb-6">
-              La primera plataforma para podólogas y manicuristas que no solo agenda citas: <span className="font-semibold text-gray-800">te dice exactamente cuánto ganas</span>, gestiona tu stock gramo a gramo y te devuelve tu tiempo.
+              EstetikFlow es el software para profesionales de la estética en Chile que te da <span className="font-semibold text-gray-800">agenda online, fichas clínicas, control de inventario y recordatorios WhatsApp</span> — todo en una sola app que configurás en 5 minutos.
             </p>
 
 
@@ -127,7 +125,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* DESKTOP IMAGE COLUMN */}
+          {/* DESKTOP IMAGE COLUMN — Screenshot con CTA de video */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -135,15 +133,37 @@ export default function Hero() {
             className="flex w-full lg:w-1/2 flex-1 justify-center relative order-2 mt-8 lg:mt-0"
           >
             <motion.div animate={floatingAnimation} className="relative w-full max-w-[350px] lg:max-w-none">
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden h-[250px] sm:h-[350px] lg:h-auto">
+              {/* Screenshot/Video thumbnail */}
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
                 <Image
-                  src="/images/hero-professional.png"
-                  alt="Profesional de estética usando EstetikFlow"
+                  src="/screenshots/dashboard-citas.png"
+                  alt="Demo de EstetikFlow — Agenda digital en acción"
                   width={600}
-                  height={500}
-                  className="w-full max-w-[400px] lg:max-w-[480px] h-full lg:h-auto object-cover object-top lg:object-contain"
+                  height={450}
+                  className="w-full max-w-[400px] lg:max-w-[480px] object-cover"
                   priority
                 />
+                {/* Overlay para el botón de play */}
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <a
+                    href="#demo"
+                    className="group flex items-center gap-3 bg-white/95 hover:bg-white text-[#0D2B28] px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl transition-all duration-200 hover:scale-105"
+                  >
+                    <span className="w-8 h-8 bg-[#e76f51] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Play className="w-4 h-4 text-white ml-0.5" aria-hidden="true" />
+                    </span>
+                    Ver demo en 60 segundos
+                  </a>
+                </div>
+              </div>
+              {/* Floating cards de métricas */}
+              <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg px-4 py-2 border border-gray-100 hidden lg:block">
+                <p className="text-xs text-gray-500">Citas agendadas hoy</p>
+                <p className="text-lg font-bold text-[#2a9d8f]">+23% vs. semana pasada</p>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg px-4 py-2 border border-gray-100 hidden lg:block">
+                <p className="text-xs text-gray-500">Inasistencias esta semana</p>
+                <p className="text-lg font-bold text-[#e76f51]">0 — gracias a recordatorios ✓</p>
               </div>
               <div className="absolute -z-10 -bottom-6 -right-6 w-full h-full rounded-2xl bg-primary/10" />
             </motion.div>
