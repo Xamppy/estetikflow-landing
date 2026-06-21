@@ -74,6 +74,13 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.estetikflow.cl/#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.estetikflow.cl"}
+      ]
+    },
     // Organization
     {
       "@type": "Organization",
@@ -96,11 +103,17 @@ const structuredData = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
+        "telephone": "+56-9-1234-5678",
         "email": "contacto@estetikflow.cl",
         "contactType": "customer service",
         "availableLanguage": ["Spanish", "es-CL"]
       },
-      "sameAs": []
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Iquique",
+        "addressCountry": "CL"
+      },
+      "sameAs": ["https://www.instagram.com/estetikflow.cl/", "https://www.linkedin.com/company/estetikflow"]
     },
     // Software Application
     {
@@ -115,11 +128,11 @@ const structuredData = {
         {
           "@type": "Offer",
           "name": "Orden Digital",
-          "price": "12.99",
+          "price": "12990",
           "priceCurrency": "CLP",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "12.99",
+            "price": "12990",
             "priceCurrency": "CLP",
             "unitCode": "MON"
           }
@@ -127,11 +140,11 @@ const structuredData = {
         {
           "@type": "Offer",
           "name": "Imperio Profesional",
-          "price": "24.99",
+          "price": "24990",
           "priceCurrency": "CLP",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "24.99",
+            "price": "24990",
             "priceCurrency": "CLP",
             "unitCode": "MON"
           }
@@ -139,22 +152,16 @@ const structuredData = {
         {
           "@type": "Offer",
           "name": "Gabinete Expansión",
-          "price": "59.99",
+          "price": "59990",
           "priceCurrency": "CLP",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "59.99",
+            "price": "59990",
             "priceCurrency": "CLP",
             "unitCode": "MON"
           }
         }
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "127",
-        "bestRating": "5"
-      },
       "featureList": [
         "Agenda online 24/7",
         "Fichas clínicas digitales",
