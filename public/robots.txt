@@ -19,7 +19,7 @@ User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
 Allow: /
