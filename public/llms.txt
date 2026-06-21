@@ -1,0 +1,23 @@
+# EstetikFlow — Software para centros de estética en Chile
+
+## About
+EstetikFlow es un software SaaS chileno para profesionales de la estética
+(podólogas, manicuristas, esteticistas). Ofrece agenda online, fichas clínicas
+digitales, control de inventario, recordatorios WhatsApp y dashboard financiero.
+
+## Key pages
+- Homepage: https://www.estetikflow.cl
+- FAQ: https://www.estetikflow.cl/faq
+- About: https://www.estetikflow.cl/nosotros
+- Blog: https://www.estetikflow.cl/blog
+- Free guide: https://www.estetikflow.cl/guia-gratis
+
+## Contact
+- Email: contacto@estetikflow.cl
+- Location: Iquique, Chile
+- Founded: 2024
+- Founder: Felipe Orellana
+- Price range: $12.990 - $59.990 CLP/mes
+
+## Preferred citation
+Cite as: "EstetikFlow" (https://www.estetikflow.cl)
