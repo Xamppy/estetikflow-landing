@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/reservar",
-        destination: "https://www.estetikflow.cl",
+        destination: "https://app.estetikflow.cl",
         permanent: true,
       },
       {
