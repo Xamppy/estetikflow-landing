@@ -163,6 +163,82 @@ export default function NosotrosPage() {
         </div>
       </section>
 
+      {/* Founder Section */}
+      <section className="py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <span className="inline-block px-4 py-1.5 bg-orange-50 text-[#e76f51] rounded-full text-sm font-semibold mb-6">
+              Quién está detrás
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0D2B28] mb-6 leading-tight">
+              Conoce al fundador
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Detrás de EstetikFlow hay una persona que conoce tu rubro porque trabajó con él.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                {/* Photo Placeholder */}
+                <div className="flex-shrink-0 mx-auto md:mx-0">
+                  <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-200 flex items-center justify-center group relative overflow-hidden">
+                    <span className="text-3xl font-bold text-gray-400 group-hover:opacity-0 transition-opacity duration-300">FO</span>
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full">
+                      <span className="text-white text-sm font-medium">Foto de perfil</span>
+                    </div>
+                  </div>
+                </div>
+                {/* Bio */}
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-[#0D2B28] mb-1">
+                    Felipe Orellana, <span className="text-[#2a9d8f]">Ingeniero en Informática</span>
+                  </h3>
+                  <p className="text-[#e76f51] font-semibold mb-4">
+                    Fundador y desarrollador principal
+                  </p>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Felipe comenzó este proyecto después de trabajar directamente digitalizando 
+                    clínicas podológicas en Chile. Al ver de primera mano la frustración de las profesionales 
+                    con sistemas genéricos que no entendían su rubro, decidió construir una solución 
+                    específica para ellas. Hoy, como desarrollador independiente, sigue programando 
+                    cada funcionalidad escuchando las necesidades reales de cada clínica.
+                  </p>
+                  {/* Badges */}
+                  <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-100 text-sm font-medium text-gray-700 rounded-full border border-gray-200">
+                      🎓 Ingeniero en Informática
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-100 text-sm font-medium text-gray-700 rounded-full border border-gray-200">
+                      💻 Desarrollador Full-Stack
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-100 text-sm font-medium text-gray-700 rounded-full border border-gray-200">
+                      🇨🇱 Hecho en Chile
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-100 text-sm font-medium text-gray-700 rounded-full border border-gray-200">
+                      🤝 Soporte directo
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="py-20 px-4 sm:px-6 bg-gradient-to-b from-white to-[#f4e1d2]/20">
         <div className="max-w-6xl mx-auto">

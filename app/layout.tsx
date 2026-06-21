@@ -115,6 +115,20 @@ const structuredData = {
       },
       "sameAs": ["https://www.instagram.com/estetikflow.cl/", "https://www.linkedin.com/company/estetikflow"]
     },
+    // Person (Founder)
+    {
+      "@type": "Person",
+      "@id": "https://www.estetikflow.cl/#person",
+      "name": "Felipe Orellana",
+      "givenName": "Felipe",
+      "familyName": "Orellana",
+      "jobTitle": "Ingeniero en Informática",
+      "knowsAbout": ["Software development", "Web applications", "Clinic management"],
+      "affiliation": {
+        "@id": "https://www.estetikflow.cl/#organization"
+      },
+      "sameAs": ["https://www.linkedin.com/in/felipe-orellana/"]
+    },
     // Software Application
     {
       "@type": "SoftwareApplication",
