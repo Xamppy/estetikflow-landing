@@ -113,7 +113,7 @@ export default function Hero() {
               </div>
 
               {/* Mini testimonial destacado */}
-              <div className="hidden lg:flex items-center gap-3 mt-6 bg-[#f4e1d2]/40 rounded-xl px-4 py-3 max-w-xl">
+              <div id="testimonios" className="hidden lg:flex items-center gap-3 mt-6 bg-[#f4e1d2]/40 rounded-xl px-4 py-3 max-w-xl">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2a9d8f] flex items-center justify-center text-white font-bold text-sm">
                   MC
                 </div>
