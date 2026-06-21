@@ -11,6 +11,7 @@
   "dependencies": {
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.26",
+    "lightningcss-linux-x64-gnu": "^1.32.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",

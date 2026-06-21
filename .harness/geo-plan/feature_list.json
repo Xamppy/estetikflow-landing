@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "project": "EstetikFlow Landing Page — GEO Optimization",
+    "audit_date": "2026-06-21",
+    "current_geo_score": 47,
+    "target_geo_score": 75,
+    "repo": "Xamppy/estetikflow-landing"
+  },
+  "features": [
+    {
+      "id": "GEO-FIX-001",
+      "title": "Reemplazar demo falsa (Rick Roll)",
+      "severity": "critical",
+      "phase": 1,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 15
+    },
+    {
+      "id": "GEO-FIX-002",
+      "title": "Arreglar páginas 404",
+      "severity": "critical",
+      "phase": 1,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 45
+    },
+    {
+      "id": "GEO-FIX-003",
+      "title": "Crear archivo /llms.txt",
+      "severity": "high",
+      "phase": 1,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 20
+    },
+    {
+      "id": "GEO-FIX-004",
+      "title": "Agregar reglas AI crawlers a robots.txt",
+      "severity": "high",
+      "phase": 1,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 15
+    },
+    {
+      "id": "GEO-FIX-005",
+      "title": "Publicar artículos en el blog (producción)",
+      "severity": "high",
+      "phase": 2,
+      "repo": "podoclinic-saas",
+      "dependencies": ["Deploy endpoint API Key en producción (usuario via Dokploy)"],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 30
+    },
+    {
+      "id": "GEO-FIX-006",
+      "title": "Poblar sameAs en Schema JSON-LD",
+      "severity": "high",
+      "phase": 2,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 20
+    },
+    {
+      "id": "GEO-FIX-007",
+      "title": "Agregar BreadcrumbList Schema",
+      "severity": "high",
+      "phase": 2,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 25
+    },
+    {
+      "id": "GEO-FIX-008",
+      "title": "Agregar teléfono y dirección de contacto",
+      "severity": "high",
+      "phase": 2,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 30
+    },
+    {
+      "id": "GEO-FIX-009",
+      "title": "Agregar security headers faltantes",
+      "severity": "medium",
+      "phase": 3,
+      "repo": "podoclinic-saas + Vercel",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 60
+    },
+    {
+      "id": "GEO-FIX-010",
+      "title": "Corregir precios en Schema JSON-LD",
+      "severity": "medium",
+      "phase": 3,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 15
+    },
+    {
+      "id": "GEO-FIX-011",
+      "title": "Agregar /blog al sitemap y más URLs",
+      "severity": "medium",
+      "phase": 3,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 15
+    },
+    {
+      "id": "GEO-FIX-012",
+      "title": "Crear página de equipo en /nosotros",
+      "severity": "medium",
+      "phase": 3,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 90
+    },
+    {
+      "id": "GEO-FIX-013",
+      "title": "Estrategia de menciones de marca y backlinks",
+      "severity": "low",
+      "phase": 4,
+      "repo": "N/A (marketing)",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": "ongoing"
+    },
+    {
+      "id": "GEO-FIX-014",
+      "title": "Agregar reseñas verificables",
+      "severity": "low",
+      "phase": 4,
+      "repo": "estetikflow-landing",
+      "dependencies": [],
+      "status": "pending",
+      "assignee": null,
+      "estimated_minutes": 60
+    }
+  ]
+}

@@ -42,7 +42,7 @@ export default function DemoSection() {
             {/* Play button centrado */}
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <a
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex flex-col items-center gap-4"
@@ -53,7 +53,7 @@ export default function DemoSection() {
                   <Play className="w-8 h-8 text-white ml-1" aria-hidden="true" />
                 </div>
                 <span className="text-white/90 font-semibold text-lg">
-                  Reproducir demo
+                  Próximamente
                 </span>
               </a>
             </div>
