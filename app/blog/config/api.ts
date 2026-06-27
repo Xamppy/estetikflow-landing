@@ -27,6 +27,9 @@ export const blogApi = {
 
     // GET /api/public/blog/categorias/
     categories: () => `${API_URL}/api/public/blog/categorias/`,
+
+    // POST /api/blog/create — server-side proxy (keeps API key secret)
+    create: () => `/api/blog/create`,
   },
 };
 

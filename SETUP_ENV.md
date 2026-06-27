@@ -1,35 +1,30 @@
-# IMPORTANT: Environment Setup Required
+# 🔧 Environment Setup
 
-## 🔧 Create .env.local File
+## Create .env.local File
 
-Before testing the booking system, you need to create a `.env.local` file in your project root:
-
-**File location:**
-```
-estetikflow-landing/
-├── app/
-├── components/
-├── .env.local  ← CREATE THIS FILE
-├── package.json
-└── ...
-```
-
-**File contents:**
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
+BLOG_API_KEY=your-secret-blog-api-key-here
 ```
 
-> Replace `http://localhost:8000` with your Django server URL
+- `NEXT_PUBLIC_API_URL` — Django backend URL (exposed to client)
+- `BLOG_API_KEY` — Server-side only, must match Dokploy's `BLOG_API_KEY`
 
-## 🚀 After Creating .env.local
+## 🚀 Restart
 
-Restart your development server:
 ```bash
-# Stop the current server (Ctrl+C)
-# Then restart:
 npm run dev
 ```
 
-## ✅ You're Ready!
+## 📝 Creating Blog Posts
 
-Test the booking page at: `http://localhost:3000/reservar/[your-clinic-slug]`
+Via the proxy endpoint (key stays server-side):
+
+```bash
+curl -X POST http://localhost:3000/api/blog/create \
+  -F "title=Mi Articulo" \
+  -F "content=<p>Contenido HTML</p>" \
+  -F "category_slug=podologia" \
+  -F "status=published" \
+  -F "featured_image=@/ruta/imagen.jpg"
+```
