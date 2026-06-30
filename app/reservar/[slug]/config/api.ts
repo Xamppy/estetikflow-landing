@@ -47,6 +47,7 @@ export interface Tratamiento {
 
 export interface Clinica {
   nombre: string;
+  especialidad?: string;
   logo_url?: string;
   hora_apertura?: string;
   hora_cierre?: string;

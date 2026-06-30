@@ -2,13 +2,39 @@ import { Tratamiento } from "../config/api";
 
 interface ServiceSelectionProps {
   tratamientos: Tratamiento[];
+  especialidad?: string;
   onSelect: (tratamiento: Tratamiento) => void;
 }
 
+const SERVICE_COPY: Record<
+  string,
+  { heading: string; subtitle: string }
+> = {
+  cosmetologia: {
+    heading: "Selecciona tu tratamiento estético",
+    subtitle: "Elige el tratamiento que deseas reservar",
+  },
+  podologia: {
+    heading: "Selecciona tu servicio podológico",
+    subtitle: "Elige el tratamiento que deseas reservar",
+  },
+  multi: {
+    heading: "Selecciona tu servicio",
+    subtitle: "Elige el tratamiento que deseas reservar",
+  },
+};
+
+const DEFAULT_COPY = {
+  heading: "Selecciona tu servicio",
+  subtitle: "Elige el tratamiento que deseas reservar",
+};
+
 export default function ServiceSelection({
   tratamientos,
+  especialidad,
   onSelect,
 }: ServiceSelectionProps) {
+  const copy = SERVICE_COPY[especialidad || "podologia"] || DEFAULT_COPY;
   const formatPrice = (precio: number) => {
     return new Intl.NumberFormat("es-CL", {
       style: "currency",
@@ -21,10 +47,10 @@ export default function ServiceSelection({
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Selecciona tu servicio
+          {copy.heading}
         </h2>
         <p className="text-gray-600">
-          Elige el tratamiento que deseas reservar
+          {copy.subtitle}
         </p>
       </div>
 

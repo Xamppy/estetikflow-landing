@@ -93,6 +93,7 @@ export default function BookingFlow({ clinica }: { clinica: Clinica & { slug: st
           {currentStep === 1 && (
             <ServiceSelection
               tratamientos={clinica.tratamientos}
+              especialidad={clinica.especialidad}
               onSelect={handleServiceSelect}
             />
           )}
