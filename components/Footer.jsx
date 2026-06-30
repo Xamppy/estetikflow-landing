@@ -45,7 +45,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-white/80 text-sm leading-relaxed">
-              Software de gestión para centros de estética y spa. Simplifica tu operación diaria.
+              Software de gestión especializado para podólogas, cosmetólogas y manicuristas. Simplifica tu operación diaria.
             </p>
           </div>
 

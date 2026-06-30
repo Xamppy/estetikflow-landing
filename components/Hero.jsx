@@ -36,7 +36,7 @@ export default function Hero() {
             {/* Badge */}
             <div className="mb-4 md:mb-6">
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                🇨🇱 Hecho en Chile · +127 profesionales ya nos prefieren
+                🇨🇱 Para podólogas, cosmetólogas y manicuristas en Chile
               </span>
             </div>
 
@@ -45,10 +45,13 @@ export default function Hero() {
               Dejé de perseguir pacientes. Ellas ahora me encuentran a mí.{' '}
               <span className="text-primary">Gracias a una agenda online.</span>
             </h1>
+            <p className="mt-3 text-lg sm:text-xl text-primary font-semibold">
+              🦶✨💅 Podología, cosmetología y manicuría — una sola app
+            </p>
 
             {/* Subtitle */}
             <p className="mt-5 md:mt-6 text-base sm:text-lg text-gray-600 max-w-xl leading-relaxed mx-auto lg:mx-0 mb-6">
-              EstetikFlow es el software para profesionales de la estética en Chile que te da <span className="font-semibold text-gray-800">agenda online, fichas clínicas, control de inventario y recordatorios WhatsApp</span> — todo en una sola app que configurás en 5 minutos.
+              EstetikFlow es el software especializado para profesionales de la estética en Chile: <span className="font-semibold text-gray-800">agenda online, fichas clínicas por rubro, fotos antes/después, control de inventario y recordatorios WhatsApp</span> — todo en una sola app que configuras en 5 minutos. Sin funciones de relleno.
             </p>
 
 
@@ -73,6 +76,17 @@ export default function Hero() {
               >
                 <Play className="mr-2 w-5 h-5" aria-hidden="true" />
                 Ver planes y cotizar
+              </motion.a>
+
+              <motion.a
+                href="https://wa.me/56912345678?text=Hola%20EstetikFlow%2C%20quiero%20probar%20el%20chatbot"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-xl transition-colors duration-200 min-w-[180px] bg-[#25D366] text-white hover:bg-[#20bd5a] shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                💬 Probar chatbot WhatsApp
               </motion.a>
             </div>
 

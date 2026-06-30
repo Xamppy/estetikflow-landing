@@ -64,7 +64,7 @@ export default function TopBanner() {
 
               {/* TEXTO: VERSIÓN DESKTOP (Completa) */}
               <p className="hidden sm:block text-sm font-medium text-gray-200">
-                Lanzamiento exclusivo: <span className="text-[#e76f51] font-bold">1 Mes Gratis</span> para las primeras inscritas.
+                Lanzamiento exclusivo: <span className="text-[#e76f51] font-bold">1 Mes Gratis</span> para podólogas, cosmetólogas y manicuristas.
               </p>
 
               {/* BOTÓN VISUAL (CTA) */}

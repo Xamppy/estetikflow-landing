@@ -301,6 +301,66 @@ export default function Pricing() {
           ))}
         </motion.div>
 
+        {/* ============ COMPARATIVA ESTETIKFLOW vs AGENDAPRO ============ */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-20 max-w-4xl mx-auto"
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
+            ¿Por qué elegir EstetikFlow{' '}
+            <span className="text-accent">vs. AgendaPro</span>?
+          </h3>
+          <p className="text-center text-gray-500 mb-10 text-sm">
+            AgendaPro es genérico (peluquerías, barberías, todo). EstetikFlow es <span className="font-semibold text-primary">especializado en estética profesional</span> con fichas clínicas reales.
+          </p>
+
+          {/* Tabla comparativa — formato mobile-friendly */}
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            {/* Header row */}
+            <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-200">
+              <div className="p-4 font-semibold text-gray-700 text-sm">Característica</div>
+              <div className="p-4 font-semibold text-primary text-sm text-center bg-primary/5">EstetikFlow</div>
+              <div className="p-4 font-semibold text-gray-500 text-sm text-center">AgendaPro</div>
+            </div>
+
+            {/* Rows */}
+            {[
+              { feature: 'Agenda online', estetik: '✅', agenda: '✅' },
+              { feature: 'Fichas clínicas por especialidad', estetik: '✅', agenda: '❌' },
+              { feature: 'Fotos antes/después', estetik: '✅', agenda: '❌' },
+              { feature: 'Control de inventario real', estetik: '✅', agenda: 'Básico' },
+              { feature: 'Dashboard de rentabilidad', estetik: '✅', agenda: 'Solo reportes' },
+              { feature: 'Recordatorios WhatsApp', estetik: '✅', agenda: '✅' },
+              { feature: 'Especializado en estética', estetik: '✅', agenda: '❌ (genérico)' },
+            ].map((row, index) => (
+              <div
+                key={index}
+                className={`grid grid-cols-3 border-b border-gray-100 ${
+                  index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                }`}
+              >
+                <div className="p-3.5 text-sm text-gray-700 font-medium">{row.feature}</div>
+                <div className="p-3.5 text-sm text-center font-semibold text-primary bg-primary/5">{row.estetik}</div>
+                <div className="p-3.5 text-sm text-center text-gray-500">{row.agenda}</div>
+              </div>
+            ))}
+
+            {/* Precio row — highlighted */}
+            <div className="grid grid-cols-3 bg-accent/5">
+              <div className="p-4 text-sm font-bold text-gray-800">Precio inicial</div>
+              <div className="p-4 text-sm text-center font-bold text-primary bg-primary/5">$12.990/mes</div>
+              <div className="p-4 text-sm text-center text-gray-500">~$15.000/mes</div>
+            </div>
+          </div>
+
+          <p className="text-center text-xs text-gray-400 mt-4">
+            * Comparativa basada en información pública de AgendaPro.cl (junio 2026). Los precios y características pueden variar.
+          </p>
+        </motion.div>
+
         {/* Time to Value + Trust Note */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

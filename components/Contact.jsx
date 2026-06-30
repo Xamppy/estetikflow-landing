@@ -134,10 +134,10 @@ export default function Contact() {
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-                ¿Dudas sobre qué plan elegir?
+                ¿Eres podóloga, cosmetóloga o manicurista?
               </h2>
               <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                Escríbenos y te ayudamos a digitalizar tu gabinete. Responderemos en menos de 24 horas.
+                Escríbenos y te ayudamos a digitalizar tu centro. Responderemos en menos de 24 horas.
               </p>
             </div>
 

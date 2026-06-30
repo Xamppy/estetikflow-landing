@@ -55,7 +55,7 @@ export default function BentoFeatures() {
             <span className="text-primary">nada que no uses</span>
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Herramientas diseñadas específicamente para centros de estética y spa.
+            Herramientas diseñadas específicamente para podólogas, cosmetólogas y manicuristas.
           </p>
         </motion.div>
 
@@ -200,13 +200,13 @@ export default function BentoFeatures() {
                 Fichas Clínicas Profesionales.
               </h3>
               <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                Olvídate de las fichas en papel. Registra anamnesis, alergias y evolución del paciente en segundos.
+                Olvídate de las fichas en papel. Fichas clínicas especializadas: podograma para podología, consentimientos para cosmetología, fotos antes/después para manicuría.
               </p>
               {/* Tags */}
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-secondary/80 rounded-full text-xs font-medium text-gray-700">Historial</span>
-                <span className="px-3 py-1 bg-secondary/80 rounded-full text-xs font-medium text-gray-700">Consentimientos</span>
-                <span className="px-3 py-1 bg-secondary/80 rounded-full text-xs font-medium text-gray-700">Evolución</span>
+                <span className="px-3 py-1 bg-secondary/80 rounded-full text-xs font-medium text-gray-700">🦶 Podograma</span>
+                <span className="px-3 py-1 bg-secondary/80 rounded-full text-xs font-medium text-gray-700">✨ Consentimientos</span>
+                <span className="px-3 py-1 bg-secondary/80 rounded-full text-xs font-medium text-gray-700">💅 Antes/Después</span>
               </div>
             </div>
 
