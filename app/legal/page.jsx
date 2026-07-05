@@ -135,7 +135,7 @@ export default function LegalPage() {
               <div>
                 <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">8. Privacidad de Datos de Pacientes</h3>
                 <p className="leading-relaxed">
-                  El Usuario (Profesional) declara ser el &quot;Responsable de los Datos&quot; de sus pacientes según la Ley 19.628. 
+                  El Usuario (Profesional) declara ser el &quot;Responsable de los Datos&quot; de sus pacientes según la Ley 21.719 de Protección de Datos Personales. 
                   EstetikFlow actúa meramente como &quot;Encargado del Tratamiento&quot; (almacenamiento). El Usuario garantiza haber 
                   obtenido el consentimiento de sus pacientes para ingresar sus datos en sistemas digitales.
                 </p>
@@ -170,7 +170,15 @@ export default function LegalPage() {
 
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-8">
               <div>
-                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">1. Recolección de Información</h3>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">1. Marco Legal</h3>
+                <p className="leading-relaxed">
+                  Esta Política de Privacidad se rige por la <strong className="text-[#0D2B28]">Ley 21.719 de Protección de Datos Personales</strong> de la República de Chile, 
+                  que reemplaza a la antigua Ley 19.628. La autoridad fiscalizadora es la <strong className="text-[#0D2B28]">Agencia de Protección de Datos Personales</strong>.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">2. Recolección de Información</h3>
                 <p className="leading-relaxed mb-3">Recopilamos dos tipos de datos:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li><strong className="text-[#0D2B28]">A) Datos del Usuario (Cliente):</strong> Nombre, correo electrónico, teléfono y datos de facturación para gestionar su suscripción.</li>
@@ -179,7 +187,34 @@ export default function LegalPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">2. Uso de la Información</h3>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">3. Base Legal del Tratamiento</h3>
+                <p className="leading-relaxed">
+                  El tratamiento de datos personales se fundamenta en las siguientes bases legales:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong className="text-[#0D2B28]">Consentimiento explícito:</strong> Otorgado libremente por el titular al registrarse, realizar una reserva o utilizar nuestros servicios.</li>
+                  <li><strong className="text-[#0D2B28]">Ejecución contractual:</strong> Necesario para la prestación del servicio contratado (gestión de cuenta, facturación, soporte).</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">4. Consentimiento</h3>
+                <p className="leading-relaxed mb-3">
+                  De acuerdo con la Ley 21.719, todo tratamiento de datos personales requiere <strong className="text-[#0D2B28]">consentimiento explícito, informado, previo y revocable</strong>. 
+                  No se admite el consentimiento tácito. El titular puede revocar su consentimiento en cualquier momento, sin efectos retroactivos, 
+                  escribiendo a{' '}
+                  <a href="mailto:privacidad@estetikflow.cl" className="text-[#E76F51] hover:underline font-medium">
+                    privacidad@estetikflow.cl
+                  </a>.
+                </p>
+                <p className="leading-relaxed">
+                  El consentimiento queda registrado electrónicamente con fecha, hora y medio de obtención, 
+                  conforme a lo exigido por la normativa vigente.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">5. Uso de la Información</h3>
                 <ul className="list-disc pl-6 space-y-3">
                   <li className="leading-relaxed">Los Datos del Usuario se utilizan para proveer el servicio, facturar y enviar notificaciones técnicas.</li>
                   <li className="leading-relaxed">
@@ -191,7 +226,7 @@ export default function LegalPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">3. Seguridad de los Datos</h3>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">6. Seguridad de los Datos</h3>
                 <p className="leading-relaxed">
                   Implementamos medidas de seguridad digital (encriptación de contraseñas, aislamiento de bases de datos por cuenta) 
                   para proteger la información contra acceso no autorizado, alteración o destrucción.
@@ -199,21 +234,76 @@ export default function LegalPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">4. Derechos ARCO (Ley 19.628)</h3>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">7. Notificación de Brechas de Seguridad</h3>
                 <p className="leading-relaxed">
-                  El Usuario titular puede ejercer sus derechos de Acceso, Rectificación, Cancelación y Oposición sobre sus 
-                  datos personales escribiendo a{' '}
-                  <a href="mailto:contacto@estetikflow.cl" className="text-[#E76F51] hover:underline font-medium">
-                    contacto@estetikflow.cl
-                  </a>. 
-                  Respecto a los datos de pacientes, el Usuario Profesional es el responsable de gestionar dichos derechos frente a sus clientes.
+                  En cumplimiento de la Ley 21.719, en caso de producirse una violación de seguridad que afecte datos personales, 
+                  EstetikFlow notificará a la <strong className="text-[#0D2B28]">Agencia de Protección de Datos Personales</strong> dentro de 
+                  <strong className="text-[#0D2B28]"> 5 días hábiles</strong> desde que se tenga conocimiento del incidente. 
+                  Cuando la brecha implique un riesgo alto para los derechos de los titulares, estos serán notificados sin dilación indebida.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">5. Cookies</h3>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">8. Derechos ARCO+ (Ley 21.719)</h3>
+                <p className="leading-relaxed mb-3">
+                  El titular de los datos puede ejercer los siguientes derechos gratuitamente, escribiendo a{' '}
+                  <a href="mailto:privacidad@estetikflow.cl" className="text-[#E76F51] hover:underline font-medium">
+                    privacidad@estetikflow.cl
+                  </a>:
+                </p>
+                <ul className="list-disc pl-6 space-y-3">
+                  <li className="leading-relaxed">
+                    <strong className="text-[#0D2B28]">Acceso:</strong> Derecho a conocer qué datos personales tratamos y obtener copia de ellos. 
+                    <span className="text-[#E76F51] font-medium"> Plazo de respuesta: 15 días hábiles.</span>
+                  </li>
+                  <li className="leading-relaxed">
+                    <strong className="text-[#0D2B28]">Rectificación:</strong> Derecho a corregir datos inexactos, incompletos o desactualizados. 
+                    <span className="text-[#E76F51] font-medium"> Plazo de respuesta: 15 días hábiles.</span>
+                  </li>
+                  <li className="leading-relaxed">
+                    <strong className="text-[#0D2B28]">Cancelación/Supresión:</strong> Derecho a solicitar la eliminación de datos cuando ya no sean necesarios 
+                    o el tratamiento sea ilícito. 
+                    <span className="text-[#E76F51] font-medium"> Plazo de respuesta: 3 días hábiles.</span>
+                  </li>
+                  <li className="leading-relaxed">
+                    <strong className="text-[#0D2B28]">Oposición:</strong> Derecho a oponerse al tratamiento de datos para fines de marketing directo 
+                    u otros fines legítimos. Este derecho es <strong>absoluto para fines de marketing</strong>. 
+                    <span className="text-[#E76F51] font-medium"> Plazo de respuesta: 15 días hábiles.</span>
+                  </li>
+                  <li className="leading-relaxed">
+                    <strong className="text-[#0D2B28]">Portabilidad:</strong> Derecho a recibir tus datos en un formato estructurado, 
+                    de uso común y lectura mecánica, y a transferirlos a otro responsable. 
+                    <span className="text-[#E76F51] font-medium"> Plazo de respuesta: 15 días hábiles.</span>
+                  </li>
+                  <li className="leading-relaxed">
+                    <strong className="text-[#0D2B28]">Decisiones automatizadas:</strong> Derecho a no ser objeto de decisiones basadas 
+                    únicamente en tratamiento automatizado que produzcan efectos jurídicos significativos, incluida la elaboración de perfiles. 
+                    <span className="text-[#E76F51] font-medium"> Plazo de respuesta: 15 días hábiles.</span>
+                  </li>
+                </ul>
+                <p className="leading-relaxed mt-3">
+                  Respecto a los datos de pacientes, el Usuario Profesional es el responsable de gestionar dichos derechos frente a sus clientes, 
+                  conforme a su rol de Responsable del Tratamiento.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">9. Cookies</h3>
                 <p className="leading-relaxed">
-                  Utilizamos cookies técnicas estrictamente necesarias para mantener la sesión activa y segura dentro de la plataforma.
+                  Utilizamos cookies técnicas estrictamente necesarias para mantener la sesión activa y segura dentro de la plataforma. 
+                  Para cookies analíticas y de marketing, solicitamos consentimiento explícito previo mediante nuestro banner de cookies.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-[#0D2B28] mb-3">10. Contacto y Autoridad Fiscalizadora</h3>
+                <p className="leading-relaxed">
+                  Para ejercer tus derechos o realizar consultas sobre privacidad, escríbenos a{' '}
+                  <a href="mailto:privacidad@estetikflow.cl" className="text-[#E76F51] hover:underline font-medium">
+                    privacidad@estetikflow.cl
+                  </a>. 
+                  También puedes contactar a la <strong className="text-[#0D2B28]">Agencia de Protección de Datos Personales</strong>, 
+                  la autoridad fiscalizadora encargada de velar por el cumplimiento de la Ley 21.719 en Chile.
                 </p>
               </div>
             </div>
@@ -222,7 +312,7 @@ export default function LegalPage() {
           {/* Last Updated */}
           <div className="mt-16 pt-8 border-t border-gray-200 text-center">
             <p className="text-sm text-gray-500">
-              Última actualización: Diciembre 2025
+              Última actualización: Julio 2026
             </p>
           </div>
         </div>

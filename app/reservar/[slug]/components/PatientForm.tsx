@@ -84,6 +84,7 @@ export default function PatientForm({
   const [submitting, setSubmitting] = useState(false);
   const [apiError, setApiError] = useState<string>();
   const [isConflict, setIsConflict] = useState(false);
+  const [consentimiento, setConsentimiento] = useState(false);
 
   const handleRutChange = (e: ChangeEvent<HTMLInputElement>) => {
     const formatted = formatRut(e.target.value);
@@ -525,9 +526,33 @@ export default function PatientForm({
           )}
         </div>
 
+        {/* Consentimiento explícito Ley 21.719 */}
+        <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
+          <input
+            type="checkbox"
+            id="consentimiento"
+            checked={consentimiento}
+            onChange={(e) => setConsentimiento(e.target.checked)}
+            required
+            className="mt-1 h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary flex-shrink-0"
+          />
+          <label htmlFor="consentimiento" className="text-sm text-gray-600 leading-relaxed">
+            Autorizo el tratamiento de mis datos personales para la gestión de esta reserva, de acuerdo a la{' '}
+            <a
+              href="/legal#privacidad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#E76F51] hover:underline font-medium"
+            >
+              Política de Privacidad
+            </a>{' '}
+            (Ley 21.719). Puedo revocar este consentimiento en cualquier momento.
+          </label>
+        </div>
+
         <button
           type="submit"
-          disabled={submitting}
+          disabled={submitting || !consentimiento}
           className="w-full py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {submitting ? (
